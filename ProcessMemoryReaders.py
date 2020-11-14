@@ -79,7 +79,7 @@ class ProcessMemReader:
 class Spelunky2MemReader(ProcessMemReader):
 
     # These constants may change when Spelunky 2 version get's updated!
-    # This version is guaranteed to be compatible with 1.16.1 version of the game.
+    # These values are guaranteed to be compatible with 1.16.1 version of the game.
     TIMER_BASE_ADDRESS_LOCATION = 0x7FF7091F2F60
     TIMER_OFFSET = 0x9FC
 
