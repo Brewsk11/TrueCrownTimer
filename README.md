@@ -45,5 +45,5 @@ Further work is planned to read the timer values directly from Spelunky 2 memory
 Please don't desync the timer when paused (I really meant **heavily** spaghettified).
 
 ### Credits
-`xinput.py`: https://github.com/r4dian/Xbox-Controller-for-Python
-`notification.mp3`: https://freesound.org/people/ltibbits/sounds/16285/
+- `xinput.py`: https://github.com/r4dian/Xbox-Controller-for-Python
+- `notification.mp3`: https://freesfx.co.uk/sfx/balloon-snap

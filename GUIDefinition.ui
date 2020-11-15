@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>693</width>
-    <height>765</height>
+    <width>789</width>
+    <height>756</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,13 +36,13 @@
              </size>
             </property>
             <property name="maximum">
-             <number>100</number>
+             <number>1000</number>
             </property>
             <property name="value">
              <number>0</number>
             </property>
             <property name="textVisible">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -82,6 +82,9 @@
             <property name="locale">
              <locale language="English" country="UnitedStates"/>
             </property>
+            <property name="text">
+             <string>0.0</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
@@ -101,11 +104,14 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
             <property name="value">
              <number>0</number>
             </property>
             <property name="textVisible">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -153,11 +159,23 @@
              </item>
              <item row="1" column="0" colspan="2">
               <widget class="QLineEdit" name="lineEdit_10">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>Consolas</family>
                  <pointsize>14</pointsize>
                 </font>
+               </property>
+               <property name="text">
+                <string>0.0</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="readOnly">
                 <bool>true</bool>
@@ -176,11 +194,23 @@
              </item>
              <item row="4" column="0">
               <widget class="QLineEdit" name="lineEdit_8">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>Consolas</family>
-                 <pointsize>14</pointsize>
+                 <pointsize>12</pointsize>
                 </font>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="readOnly">
                 <bool>true</bool>
@@ -189,11 +219,23 @@
              </item>
              <item row="6" column="1">
               <widget class="QLineEdit" name="lineEdit_11">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>Consolas</family>
-                 <pointsize>14</pointsize>
+                 <pointsize>12</pointsize>
                 </font>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="readOnly">
                 <bool>true</bool>
@@ -202,11 +244,23 @@
              </item>
              <item row="6" column="0">
               <widget class="QLineEdit" name="lineEdit_9">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>Consolas</family>
-                 <pointsize>14</pointsize>
+                 <pointsize>12</pointsize>
                 </font>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="readOnly">
                 <bool>true</bool>
@@ -225,11 +279,23 @@
              </item>
              <item row="4" column="1">
               <widget class="QLineEdit" name="lineEdit_4">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>Consolas</family>
-                 <pointsize>14</pointsize>
+                 <pointsize>12</pointsize>
                 </font>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="readOnly">
                 <bool>true</bool>
@@ -256,7 +322,7 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="pbToggleTrueCrown">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -269,7 +335,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>Enable True Crown counter</string>
+                <string>Toggle True Crown counter</string>
                </property>
               </widget>
              </item>
@@ -327,12 +393,18 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_2">
+              <widget class="QLineEdit" name="leAttachStatus">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
+               </property>
+               <property name="text">
+                <string>Not connected</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -374,7 +446,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>693</width>
+     <width>789</width>
      <height>21</height>
     </rect>
    </property>
@@ -387,8 +459,231 @@
    <extends>QWidget</extends>
    <header>CustomQt.h</header>
    <container>1</container>
+   <slots>
+    <signal>levelTimerUpdate(QString)</signal>
+    <signal>nextTpTimeLeftUpdate(QString)</signal>
+    <signal>nextTpTimeLeftPercentUpdate(int)</signal>
+    <signal>nextTpTimeLeftNotificationPercentUpdate(int)</signal>
+    <signal>previousTpTimeUpdate(QString)</signal>
+    <signal>nextTpTimeUpdate(QString)</signal>
+    <signal>tpThisLevelUpdate(QString)</signal>
+    <signal>tpAllUpdate(QString)</signal>
+    <signal>attachStatusUpdate(QString)</signal>
+    <signal>trueCrownStatusUpdate(QString)</signal>
+    <slot>attachToSpelunky()</slot>
+    <slot>toggleTrueCrownActive()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>attachToSpelunky()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>732</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>levelTimerUpdate(QString)</signal>
+   <receiver>lineEdit_10</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>730</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>384</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbToggleTrueCrown</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>toggleTrueCrownActive()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>681</x>
+     <y>387</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>attachStatusUpdate(QString)</signal>
+   <receiver>leAttachStatus</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>729</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>640</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>trueCrownStatusUpdate(QString)</signal>
+   <receiver>lineEdit_3</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>730</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>487</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>tpAllUpdate(QString)</signal>
+   <receiver>lineEdit_11</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>681</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>tpThisLevelUpdate(QString)</signal>
+   <receiver>lineEdit_9</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>nextTpTimeUpdate(QString)</signal>
+   <receiver>lineEdit_4</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>682</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>612</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>previousTpTimeUpdate(QString)</signal>
+   <receiver>lineEdit_8</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>levelTimerUpdate(QString)</signal>
+   <receiver>lineEdit_10</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>678</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>nextTpTimeLeftUpdate(QString)</signal>
+   <receiver>lineEdit</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>80</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>nextTpTimeLeftPercentUpdate(int)</signal>
+   <receiver>progressBar_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>15</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>nextTpTimeLeftNotificationPercentUpdate(int)</signal>
+   <receiver>progressBar</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>15</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
