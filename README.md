@@ -48,6 +48,8 @@ In the `QtCustom.py` file the class `MainWindow` contains some options:
 | `NOTIFICATION_FILE` | `"./notification.mp3"` | Path to the notification sound file. |
 
 ## Known bugs and workarounds
+* **Major flaw:** The timer's memory address (`ProcessMemoryReaders.py:83`) is hardcoded now and has to be extracted with external memory reader before use. This may possibly cause "error 299" while attaching to Spelunky 2 process. A solution for this is is development now.
+  * **Workaround:** # TODO
 * When enabling the timer during a level it doesn't take into account when the Crown was picked up.
   * **Workaround:** pick up the True Crown when it would normally teleport you, so it's in sync. The timer can help you with that if you enable it beforehand.
   * **Warning:** if you don't do the workaround in eg. in the City of Gold you'll have the timer desynced for the rest of the level with no option to resync. Next level it'll be in sync again.
