@@ -1,9 +1,11 @@
 from ctypes import *
 from ctypes.wintypes import *
+from win32 import win32process
 
 OpenProcess = windll.kernel32.OpenProcess
 ReadProcessMemory = windll.kernel32.ReadProcessMemory
 CloseHandle = windll.kernel32.CloseHandle
+EnumProcessModulesEx = win32process.EnumProcessModulesEx
 
 class ProcessMemReader:
 
@@ -12,6 +14,7 @@ class ProcessMemReader:
 
     def __init__(self):
         self.process_handle = None
+        self.image_base_address = None
 
     def __del__(self):
         if self.process_handle is not None:
@@ -22,6 +25,10 @@ class ProcessMemReader:
         return self.attachByPID(pid)
 
     def attachByPID(self, pid):
+        process_handle_all_access = OpenProcess(self.PROCESS_ALL_ACCESS, False, pid)
+        self.image_base_address = self.__acquireImageBaseAddress(process_handle_all_access)
+        CloseHandle(process_handle_all_access)
+
         self.process_handle = OpenProcess(self.PROCESS_VM_READ, False, pid)
         return self.process_handle
 
@@ -60,6 +67,9 @@ class ProcessMemReader:
 
         return self.__i32x2_to_i64(hi_val, lo_val)
 
+    def readByte(self, address):
+        return self.__read(address, PCHAR, 1)
+
     # Utilities
     def __i32x2_to_i64(self, hi, lo):
         hi_ = hi << 32
@@ -75,12 +85,23 @@ class ProcessMemReader:
                 return ps.pid
         raise ValueError(f'Process {process_name} not found')
 
+    def __acquireImageBaseAddress(self, process_handle):
+
+        module_tuple = EnumProcessModulesEx(
+            process_handle,
+            3 # LIST_MODULES_32BIT | LIST_MODULES_64BIT
+        )
+
+        module_list = list(module_tuple)
+        module_list.sort()
+
+        return module_list[0]
 
 class Spelunky2MemReader(ProcessMemReader):
 
     # These constants may change when Spelunky 2 version get's updated!
     # These values are guaranteed to be compatible with 1.16.1 version of the game.
-    TIMER_BASE_ADDRESS_LOCATION = 0x7FF7091F2F60
+    TIMER_BASE_OFFSET = 0x21FE2F60
     TIMER_OFFSET = 0x9FC
 
     def __init__(self):
@@ -90,7 +111,7 @@ class Spelunky2MemReader(ProcessMemReader):
         self.acquireTimerAddress()
 
     def acquireTimerAddress(self):
-        timer_base_address = self.readUInt64(self.TIMER_BASE_ADDRESS_LOCATION)
+        timer_base_address = self.readUInt64(self.image_base_address + self.TIMER_BASE_OFFSET)
         self.level_timer_address = timer_base_address + self.TIMER_OFFSET
 
     def readLevelTimerValue(self):
