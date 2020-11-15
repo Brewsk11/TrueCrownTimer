@@ -4,8 +4,6 @@
 
 A Qt based GUI True Crown timer for Spelunky 2.
 
-**Warning:** as of now the timer is unusable since there is a major bug that has to be resolved by external programs. See [bugs section](#known-bugs-and-workarounds).
-
 ## Features
 
 - attaches to Spelunky 2 process to read the level timer directly from memory,
@@ -25,7 +23,7 @@ A Qt based GUI True Crown timer for Spelunky 2.
 
 2. Install depencencies:
    ```bash
-   pip install -r requirements_gui.txt
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -50,8 +48,6 @@ In the `QtCustom.py` file the class `MainWindow` contains some options:
 | `NOTIFICATION_FILE` | `"./notification.mp3"` | Path to the notification sound file. |
 
 ## Known bugs and workarounds
-* **Major bug:** The timer's memory address (`ProcessMemoryReaders.py:83`) is hardcoded now and has to be extracted with external memory reader before use. This will cause "error 299" while attaching to Spelunky 2 process. A solution for this is is development now.
-  * **Workaround:** # TODO
 * When enabling the timer during a level it doesn't take into account when the Crown was picked up.
   * **Workaround:** pick up the True Crown when it would normally teleport you, so it's in sync. The timer can help you with that if you enable it beforehand.
   * **Warning:** if you don't do the workaround in eg. in the City of Gold you'll have the timer desynced for the rest of the level with no option to resync. Next level it'll be in sync again.
@@ -69,6 +65,7 @@ In the `QtCustom.py` file the class `MainWindow` contains some options:
 **Improvements:**
 - logic that checks if `n` seconds has passed in the countdown is wonky and needs a rework,
 - rework the project structure; at this point it's a mess,
+- change winapi calls from `ctypes.windll` functions to `pywin32` module since it's much more 'pythonier',
 
 **Bugfixes:**
 - all mentioned in [bugs section](#known-bugs-and-workarounds).
