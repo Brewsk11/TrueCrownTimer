@@ -49,10 +49,10 @@ In the `QtCustom.py` file the class `MainWindow` contains some options:
 
 ## Known bugs and workarounds
 * When enabling the timer during a level it doesn't take into account when the Crown was picked up.
-  **Workaround:** pick up the True Crown when it would normally teleport you, so it's in sync. The timer can help you with that if you enable it beforehand.
-  **Warning:** if you don't do the workaround in eg. in the City of Gold you'll have the timer desynced for the rest of the level with no option to resync. Next level it'll be in sync again.
+  * **Workaround:** pick up the True Crown when it would normally teleport you, so it's in sync. The timer can help you with that if you enable it beforehand.
+  * **Warning:** if you don't do the workaround in eg. in the City of Gold you'll have the timer desynced for the rest of the level with no option to resync. Next level it'll be in sync again.
 * Attaching to Spelunky 2 can sometimes fail for no reason. It's caused by a wrong PID lookup.
-  **Workaround:** Just try attaching again.
+  * **Workaround:** Just try attaching again.
 
 ## TODO
 
