@@ -1,6 +1,6 @@
 from ctypes import *
 from ctypes.wintypes import *
-from win32 import win32process
+from win32 import win32process, win32api
 
 OpenProcess = windll.kernel32.OpenProcess
 ReadProcessMemory = windll.kernel32.ReadProcessMemory
@@ -25,9 +25,9 @@ class ProcessMemReader:
         return self.attachByPID(pid)
 
     def attachByPID(self, pid):
-        process_handle_all_access = OpenProcess(self.PROCESS_ALL_ACCESS, False, pid)
+        process_handle_all_access = win32api.OpenProcess(self.PROCESS_ALL_ACCESS, 0, pid)
         self.image_base_address = self.__acquireImageBaseAddress(process_handle_all_access)
-        CloseHandle(process_handle_all_access)
+        win32api.CloseHandle(process_handle_all_access)
 
         self.process_handle = OpenProcess(self.PROCESS_VM_READ, False, pid)
         return self.process_handle
@@ -87,15 +87,12 @@ class ProcessMemReader:
 
     def __acquireImageBaseAddress(self, process_handle):
 
-        module_tuple = EnumProcessModulesEx(
+        modules = EnumProcessModulesEx(
             process_handle,
             3 # LIST_MODULES_32BIT | LIST_MODULES_64BIT
         )
 
-        module_list = list(module_tuple)
-        module_list.sort()
-
-        return module_list[0]
+        return modules[0]
 
 class Spelunky2MemReader(ProcessMemReader):
 
