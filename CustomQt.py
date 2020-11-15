@@ -10,8 +10,11 @@ class MainWidget(QWidget):
     CROWN_INTERVAL = 22
     EMERGENCY_BAR_AT = 3
 
-    NOTIFY_AT = [CROWN_INTERVAL - 1, 5, 2, 1, 0]
+    NOTIFY_AT = [5, 2, 1, 0]
 
+    NOTIFICATION_FILE = './notification.mp3'
+
+    # Debug
     MOCK_CONNECTION = False
 
     levelTimerUpdate = pyqtSignal(str)
@@ -111,7 +114,7 @@ class MainWidget(QWidget):
 
 
     def playNotification(self):
-        threading.Thread(target=lambda: playsound.playsound('./notification.mp3')).start()
+        threading.Thread(target=lambda: playsound.playsound(self.NOTIFICATION_FILE)).start()
 
     def timerTick(self):
 

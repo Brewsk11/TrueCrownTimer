@@ -335,7 +335,13 @@
                 </font>
                </property>
                <property name="text">
-                <string>Toggle True Crown counter</string>
+                <string>Toggle True Crown</string>
+               </property>
+               <property name="checkable">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
