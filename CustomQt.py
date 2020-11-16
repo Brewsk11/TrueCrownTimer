@@ -125,7 +125,7 @@ class MainWidget(QWidget):
             try:
                 self.parseLevelTime(self.spelunkyReader.readLevelTimer())
             except RuntimeError as e:
-                self.attachStatusUpdate.emit("Connection lost, reattach")
+                self.attachStatusUpdate.emit(f"Error reading timer: {e}")
                 self.update_timer.stop()
 
 
@@ -133,7 +133,5 @@ class MainWidget(QWidget):
         self.setTrueCrownActive(not self.trueCrownActive)
 
     def setTrueCrownActive(self, value):
-        pbToggleTrueCrown = self.findChild(QPushButton, 'pbToggleTrueCrown')
-
         self.trueCrownActive = value
         self.trueCrownStatusUpdate.emit('ENABLED' if value else 'DISABLED')
